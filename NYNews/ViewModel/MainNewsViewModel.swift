@@ -12,11 +12,11 @@ class MainNewsViewModel: NSObject {
     
      var newsData : APIResponse! {
           didSet {
-              self.bindEmployeeViewModelToController()
+              self.bindDataViewModelToController()
           }
       }
     
-    var bindEmployeeViewModelToController : (() -> ()) = {}
+    var bindDataViewModelToController : (() -> ()) = {}
     override init() {
         super.init()
        getData()
@@ -33,6 +33,19 @@ class MainNewsViewModel: NSObject {
         obj.byline = detailsObj.results[index].byline
         obj.newsSource = "\(detailsObj.results[index].source)"
         return obj
+    }
+    
+    func createCellObj(detailsObj: APIResponse, index: Int) -> NewsCellModel {
+        
+        let cellObj = NewsCellModel()
+        if detailsObj.results[index].media.count != 0 {
+            cellObj.image = detailsObj.results[index].media[0].mediaMetadata[2].url
+        }
+        cellObj.title = detailsObj.results[index].title
+        cellObj.date = detailsObj.results[index].publishedDate
+        cellObj.section = detailsObj.results[index].section
+        
+        return cellObj
     }
     
     func getData() {

@@ -15,16 +15,29 @@ class MainListCell: UITableViewCell {
     @IBOutlet weak var sections: UILabel!
     @IBOutlet weak var containerView: UIView!
     
+    var newsCellViewModel: NewsCellViewModel? = NewsCellViewModel()
+    var cellData: NewsCellModel?
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-        // Initialization code
+        updateViewModel()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
        
         // Configure the view for the selected state
+    }
+    
+    func updateViewModel() {
+        self.newsCellViewModel?.bindDataViewModelToController = {
+                  self.updateDataSource()
+              }
+    }
+    
+    func updateDataSource() {
+        cellData = newsCellViewModel?.newsData
+        configCell()
     }
     
     private func setupUI() {
@@ -41,14 +54,12 @@ class MainListCell: UITableViewCell {
         containerView.layer.shadowOpacity = 1
         containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
     }
-    
-    func configCell(imageUrl: String, Title: String, date: String, section: String) {
-        cellImage.load(the: imageUrl) {
-            print("completed ")
-        }
-        cellLBL.text = Title
-        publishedDate.text = date
-        sections.text = " \(section)  "
+
+    func configCell() {
+        cellImage.load(the: cellData?.image ?? "")
+        cellLBL.text = cellData?.title
+        publishedDate.text = cellData?.date
+        sections.text = " \(cellData?.section ?? "")  "
     }
     
 }

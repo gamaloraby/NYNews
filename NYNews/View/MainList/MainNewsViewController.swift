@@ -21,16 +21,19 @@ class MainNewsViewController: UIViewController {
             overrideUserInterfaceStyle = .light
         }
     }
+    
     func updateViewModel() {
         self.mainNewsViewModel = MainNewsViewModel()
-        self.mainNewsViewModel.bindEmployeeViewModelToController = {
+        self.mainNewsViewModel.bindDataViewModelToController = {
                   self.updateDataSource()
               }
     }
+    
     func updateDataSource() {
         data = self.mainNewsViewModel.newsData
         mainNewsList.reloadData()
     }
+    
     private func consumeServices() {
         super.viewDidLoad()
         setupTableView()
@@ -49,14 +52,12 @@ extension MainNewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainListCell", for: indexPath) as! MainListCell
-        var url: String?
-        if data?.results[indexPath.row].media.count != 0 {
-             url = data?.results[indexPath.row].media[0].mediaMetadata[2].url ?? ""
+
+        if let apiData = data {
+            let cellObj = mainNewsViewModel.createCellObj(detailsObj: apiData, index: indexPath.row)
+            cell.newsCellViewModel?.setData(with: cellObj)
         }
-        let title = data?.results[indexPath.row].title ?? ""
-        let date = data?.results[indexPath.row].publishedDate ?? ""
-        let section = data?.results[indexPath.row].section ?? ""
-        cell.configCell(imageUrl: url ?? "", Title: title, date: date, section: section)
+        
         return cell
     }
     
