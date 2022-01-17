@@ -1,0 +1,65 @@
+{
+        "status": "OK",
+        "copyright": "Copyright (c) 2022 The New York Times Company.  All Rights Reserved.",
+        "num_results": 20,
+        "results": [
+          {
+            "uri": "nyt://article/12c9b126-c994-5c79-a702-e11b12e254d1",
+            "url": "https://www.nytimes.com/2022/01/15/world/asia/tonga-volcano-tsunami.html",
+            "id": 100000008161436,
+            "asset_id": 100000008161436,
+            "source": "New York Times",
+            "published_date": "2022-01-15",
+            "updated": "2022-01-16 00:28:14",
+            "section": "World",
+            "subsection": "Asia Pacific",
+            "nytdsection": "world",
+            "adx_keywords": "Volcanoes;Tidal Waves and Tsunamis;Tonga;Fiji;New Zealand",
+            "column": null,
+            "byline": "By Aina J. Khan",
+            "type": "Article",
+            "title": "Underwater Volcano Erupts, Setting Off Tsunami Warnings Across Pacific",
+            "abstract": "The volcano erupted near the remote island nation of Tonga, triggering a chain of warnings and causing strong waves as far away as the United States.",
+            "des_facet": [
+              "Volcanoes",
+              "Tidal Waves and Tsunamis"
+            ],
+            "org_facet": [],
+            "per_facet": [],
+            "geo_facet": [
+              "Tonga",
+              "Fiji",
+              "New Zealand"
+            ],
+            "media":  [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "The scene at the Times Square station in Manhattan, where a woman was struck and killed by an R train on Saturday.",
+          "copyright": "Jeenah Moon for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/01/15/nyregion/15shoving3/15shoving3-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/01/15/nyregion/15shoving3/15shoving3-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/01/15/nyregion/15shoving3/15shoving3-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+        "eta_id": 0
+        }
+    ]}
